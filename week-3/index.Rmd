@@ -1,0 +1,26 @@
+---
+title: "Week 3 Assigment"
+author: "Agu Suur"
+date: "July 27, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Mount St. Helens, a 3D plot
+```{r message=FALSE}
+library(plotly)
+library(png)
+
+img <- readPNG("heightmap.png")
+
+plot_ly(z=img) %>% add_surface()
+```
+
+## Thanks!
+
+The code is available at:
+
+[https://github.com/suur/data-products/tree/master/week-3](https://github.com/suur/data-products/tree/master/week-3)
