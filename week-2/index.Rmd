@@ -1,0 +1,66 @@
+---
+title: "Liquor Licenses in Baltimore - 2017"
+author: "Agu Suur"
+date: "July 27, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE}
+library(stringr)
+library(leaflet)
+```
+
+```{r fig.width=9, fig.height=6, echo=FALSE, message=FALSE}
+download.file('https://data.baltimorecity.gov/api/views/xv8d-bwgi/rows.csv?accessType=DOWNLOAD',
+              destfile="licenses.csv")
+licenses <- read.csv('licenses.csv')
+licenses2017 <- licenses[licenses$LicenseYear == '2017',]
+
+#remove duplicate locations
+licenses2017 <- licenses2017[!duplicated(licenses2017$Location.1),]
+
+coords2017 <- str_match(licenses2017$Location.1, "(-?\\d+\\.\\d+), (-?\\d+\\.\\d+)")
+hasCoords <- !is.na(coords2017[,1])
+
+df <- data.frame(
+        lat = as.numeric(coords2017[hasCoords, 2]),
+        lng = as.numeric(coords2017[hasCoords, 3]),
+        popup = as.character(licenses2017[hasCoords, "TradeName"]),
+        stringsAsFactors = FALSE)
+
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(popup = df$popup, 
+             clusterOptions=markerClusterOptions())
+```
+
+## Code
+```{r eval=FALSE}
+download.file('https://data.baltimorecity.gov/api/views/xv8d-bwgi/rows.csv?accessType=DOWNLOAD',
+              destfile="licenses.csv")
+licenses <- read.csv('licenses.csv')
+licenses2017 <- licenses[licenses$LicenseYear == '2017',]
+
+#remove duplicate locations
+licenses2017 <- licenses2017[!duplicated(licenses2017$Location.1),]
+
+coords2017 <- str_match(licenses2017$Location.1, "(-?\\d+\\.\\d+), (-?\\d+\\.\\d+)")
+hasCoords <- !is.na(coords2017[,1])
+
+df <- data.frame(
+        lat = as.numeric(coords2017[hasCoords, 2]),
+        lng = as.numeric(coords2017[hasCoords, 3]),
+        popup = as.character(licenses2017[hasCoords, "TradeName"]),
+        stringsAsFactors = FALSE)
+
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(popup = df$popup, 
+             clusterOptions=markerClusterOptions())
+```
