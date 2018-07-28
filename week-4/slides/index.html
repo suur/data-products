@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BrewTree</title>
+  <meta charset="utf-8">
+  <meta name="description" content="BrewTree">
+  <meta name="author" content="Agu Suur">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/custom.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>BrewTree</h1>
+    <h2>Predicting beer style from ABV, bitterness and color</h2>
+    <p>Agu Suur<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="dark" id="slide-1" style="background:;">
+  <article data-timings="">
+    <p><q>Whoever drinks beer, he is quick to sleep; whoever sleeps long, does not sin; whoever does not sin, enters Heaven! Thus, let us drink beer!</q></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>There&#39;s no variety in beer</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>According to a <a href="https://www.statista.com/statistics/188723/top-domestic-beer-brands-in-the-united-states/">statista report</a>, the vast majority of beer sold in the US is a light pale lager.</p>
+
+<p>The situation is not better when looking at the rest of the world.</p>
+
+<p><img src="assets/img/beers.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>BrewTree helps you explore the world of beer</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Using <a href="https://www.kaggle.com/">kaggle</a> data on over <a href="https://www.kaggle.com/jtrofe/beer-recipes/">75,000 homemade beers</a>, I trained a random forest classifier to predict 32 different beer styles based on <strong>alcohol content</strong>, <strong>bitterness</strong> and <strong>color</strong>. </p>
+
+<pre><code class="r">load(&quot;../app/model.rda&quot;)
+fit$results
+</code></pre>
+
+<pre><code>##   mtry Accuracy     Kappa AccuracySD    KappaSD
+## 1    2 0.311875 0.2896774 0.03352160 0.03460295
+## 2    3 0.305625 0.2832258 0.03096397 0.03196281
+</code></pre>
+
+<p>While an accuracy of 31% does not seem much at first, keep in mind the model is predicting 32 different styles of beer, many of which are very similar. For example, the only difference between an English and an American IPA is where the hops were grown!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="dark" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Thanks!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>You can find the BrewTree app at <a href="https://suur.shinyapps.io/brewtree/">https://suur.shinyapps.io/brewtree/</a>.</p>
+
+<p>Let&#39;s explore the world of beer, and not get lost in a random forest :)</p>
+
+<style>
+@import "assets/css/custom.css";
+</style>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='There&#39;s no variety in beer'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='BrewTree helps you explore the world of beer'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Thanks!'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

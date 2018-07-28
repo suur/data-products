@@ -1,0 +1,40 @@
+@import url(http://fonts.googleapis.com/css?family=Crimson+Text);
+
+.title-slide {
+  background: url(../img/lukasz-szmigiel-33891-unsplash.jpg);
+  background-size: cover;
+}
+
+.title-slide hgroup > h1, .title-slide hgroup > h2, .title-slide hgroup > p {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  letter-spacing: 0;
+}
+
+article q {
+  font-family: 'Crimson Text', sans-serif;
+}
+.dark q {
+  color: white;
+}
+
+.dark article span {
+  color: white;
+  margin-left: 200px;
+}
+
+.dark slide h2 {
+  color: white;
+}
+
+.dark hgroup h2, .dark article p, .dark article li, .dark article li.build, .dark section p, .dark section li {
+  color: white;
+}
+
+.dark a {
+  color: #00C0FF;
+}
+
+.dark a:hover {
+  color: white !important;
+}
