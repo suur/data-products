@@ -1,0 +1,12 @@
+name: brewtree
+title: brewtree
+username:
+account: suur
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 389802
+bundleId: 1505012
+url: https://suur.shinyapps.io/brewtree/
+when: 1532784130.19957
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,50 @@
+---
+title: "training"
+author: "Agu Suur"
+date: "July 27, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(caret)
+library(doMC)
+registerDoMC(4)
+```
+
+## Load
+
+```{r cars}
+set.seed(1337)
+
+data <- read.csv("recipeData.csv")
+
+#drop unnecessary
+data <- data[, c("Style", "ABV", "IBU", "Color")]
+
+#remove outliers
+data <- data[data[,"Color"] < quantile(data[,"Color"], 0.99),]
+data <- data[data[,"ABV"] < quantile(data[,"ABV"], 0.99),]
+data <- data[data[,"IBU"] < quantile(data[,"IBU"], 0.99),]
+
+#only keep most popular styles
+freq <- as.data.frame(table(data$Style))
+popStyles <- freq[freq$Freq > 500,"Var1"]
+data <- data[data$Style %in% popStyles,]
+data <- data[data$Style != "N/A",]
+
+#remove 0 values
+data <- data[(data$ABV != 0 & data$Color != 0 & data$IBU != 0),]
+
+data$Style <- factor(data$Style)
+
+training <- data %>% group_by(Style) %>%sample_n(50)
+
+fit <- train(Style ~ ., data=training, method="rf", 
+             trControl=trainControl(method="cv",number=10))
+save(fit, file="app/model.rda")
+
+```
+
