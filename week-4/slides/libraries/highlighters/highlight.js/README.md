@@ -24,13 +24,13 @@ If you use different markup or need to apply highlighting dynamically, read
 
 - You can download your own customized version of "highlight.pack.js" or
   use the hosted one as described on the download page:
-  <http://softwaremaniacs.org/soft/highlight/en/download/>
+  <https://softwaremaniacs.org/soft/highlight/en/download/>
 
 - Style themes are available in the download package or as hosted files.
   To create a custom style for your site see the class reference in the file
   [classref.txt][cr] from the downloaded package.
 
-[cr]: http://github.com/isagalaev/highlight.js/blob/master/classref.txt
+[cr]: https://github.com/isagalaev/highlight.js/blob/master/classref.txt
 
 
 ## Tab replacement
@@ -113,7 +113,7 @@ on a site.
 ## Meta
 
 - Version: 6.2
-- URL:     http://softwaremaniacs.org/soft/highlight/en/
+- URL:     https://softwaremaniacs.org/soft/highlight/en/
 - Author:  Ivan Sagalaev (<maniac@softwaremaniacs.org>)
 
 
@@ -149,7 +149,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Syntax highlighting with language autodetection.
 
-URL:   http://softwaremaniacs.org/soft/highlight/en/
+URL:   https://softwaremaniacs.org/soft/highlight/en/
 
 Original author and current maintainer:
 Ivan Sagalaev <maniac@softwaremaniacs.org>
@@ -170,7 +170,7 @@ Contributors:
 - MajestiC <majestic2k@gmail.com>
 - Vasily Polovnyov <vast@whiteants.net>
 - Vladimir Epifanov <voldmar@voldmar.ru>
-- Alexander Makarov (http://rmcreative.ru/)
+- Alexander Makarov (https://rmcreative.ru/)
 - Vah <vahtenberg@gmail.com>
 - Shuen-Huei Guan <drake.guan@gmail.com>
 - Jason Diamond <jason@diamond.name>
